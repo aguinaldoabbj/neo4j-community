@@ -6,5 +6,6 @@ COPY cngpass.sh /cngpass.sh
 
 RUN chmod +x /cngpass.sh
 
-# adding change password script to the original entrypoint
-RUN echo "" >> /docker-entrypoint.sh && echo "/cngpass.sh &" >> /docker-entrypoint.sh
+#adding password change script to the top of entrypoint script
+RUN sed -i '3s/^/\/cngpass.sh\&\n\n/' /docker-entrypoint.sh
+
