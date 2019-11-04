@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-sh /docker-entrypoint.sh &
+/docker-entrypoint.sh &
 sleep 10
 
 # changing default password on lauching container
