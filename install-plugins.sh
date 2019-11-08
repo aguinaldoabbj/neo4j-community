@@ -2,7 +2,7 @@
 
 APOC_VERSIONS_JSON=https://raw.githubusercontent.com/neo4j-contrib/neo4j-apoc-procedures/master/versions.json
 
-cd plugins
+cd $NEO4J_HOME/plugins
 
 # download apoc if not yet there. 
 # note: we need to follow redirects and want to use orig filename
@@ -13,4 +13,4 @@ if ! ls apoc-*-all.jar 1> /dev/null 2>&1; then
         curl -L -C - -O -J "$APOC_URL"
 fi
 
-cd ..
+cd $NEO4J_HOME
