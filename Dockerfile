@@ -1,8 +1,12 @@
-#FROM neo4j:latest
-ENV NEO4J_VERSION=3.5.7
-ENV APOC_VERSIONS_JSON=https://raw.githubusercontent.com/neo4j-contrib/neo4j-apoc-procedures/master/versions.json
+ARG VERSION=3.5.12
 
-FROM neo4j:$NEO4J_VERSION
+ARG BASE_CONTAINER=neo4j:$VERSION
+
+FROM $BASE_CONTAINER
+
+ENV NEO4J_VERSION=$VERSION
+
+ENV APOC_VERSIONS_JSON=https://raw.githubusercontent.com/neo4j-contrib/neo4j-apoc-procedures/master/versions.json
 
 ENV NEO4J_PASS neo4j
 
@@ -15,4 +19,5 @@ RUN sed -i '3s/^/\/cngpass.sh\&\n\n/' /docker-entrypoint.sh
 
 COPY install-plugins.sh /install-plugins.sh
 
-RUN chmod +x install-plugins.sh && ./install-plugins.sh
+RUN chmod +x /install-plugins.sh && /install-plugins.sh
+
