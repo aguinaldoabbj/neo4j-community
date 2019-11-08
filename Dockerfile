@@ -13,6 +13,6 @@ RUN chmod +x /cngpass.sh
 #adding password change script to the top of entrypoint script
 RUN sed -i '3s/^/\/cngpass.sh\&\n\n/' /docker-entrypoint.sh
 
-COPY install_plugins.sh /install_plugins.sh
+COPY install-plugins.sh /install-plugins.sh
 
-RUN chmod +x install_plugins.sh && ./install_plugins.sh
+RUN chmod +x install-plugins.sh && ./install-plugins.sh
