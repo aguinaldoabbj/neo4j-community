@@ -2,6 +2,10 @@
 
 APOC_VERSIONS_JSON=https://raw.githubusercontent.com/neo4j-contrib/neo4j-apoc-procedures/master/versions.json
 
+#NEO4J_HOME=/tmp
+
+#NEO4J_VERSION=3.5.12
+
 cd $NEO4J_HOME/plugins
 
 # download apoc if not yet there. 
