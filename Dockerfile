@@ -8,6 +8,8 @@ ENV NEO4J_VERSION=3.5.12
 
 ENV APOC_VERSIONS_JSON=https://raw.githubusercontent.com/neo4j-contrib/neo4j-apoc-procedures/master/versions.json
 
+ENV ALGO_VERSIONS_JSON=https://raw.githubusercontent.com/neo4j-contrib/neo4j-graph-algorithms/master/versions.json
+
 ENV NEO4J_PASS neo4j
 
 ENV NEO4J_HOME /var/lib/neo4j
