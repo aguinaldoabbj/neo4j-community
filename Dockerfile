@@ -4,7 +4,7 @@ ARG BASE_CONTAINER=neo4j:$VERSION
 
 FROM $BASE_CONTAINER
 
-ENV NEO4J_VERSION=3.5.12
+ENV NEO4J_VERSION=3.5.13
 
 ENV APOC_VERSIONS_JSON=https://raw.githubusercontent.com/neo4j-contrib/neo4j-apoc-procedures/master/versions.json
 
