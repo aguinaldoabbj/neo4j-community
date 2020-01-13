@@ -12,6 +12,10 @@ ENV ALGO_VERSIONS_JSON=https://raw.githubusercontent.com/neo4j-contrib/neo4j-gra
 
 ENV NEO4J_PASS neo4j
 
+ENV NEO4J_dbms_memory_pagecache_size=2G
+
+ENV NEO4J_dbms_memory_heap_max__size=10G
+
 ENV NEO4J_HOME /var/lib/neo4j
 
 COPY cngpass.sh /cngpass.sh
