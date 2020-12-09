@@ -1,2 +1,2 @@
-A small customization for neo4j-community docker image with APOC and ALGO
+neo4j-community with APOC and GDS plugins installed 
  
