@@ -1,29 +1,30 @@
-ARG VERSION=3.5.13
+ARG TAG=4.2.1
 
-ARG BASE_CONTAINER=neo4j:$VERSION
+ARG BASE_CONTAINER=neo4j:$TAG
 
 FROM $BASE_CONTAINER
 
-ENV NEO4J_VERSION=3.5.13
+ARG TAG
 
+ENV NEO4J_VERSION=$TAG
+
+#plugins
 ENV APOC_VERSIONS_JSON=https://raw.githubusercontent.com/neo4j-contrib/neo4j-apoc-procedures/master/versions.json
 
-ENV ALGO_VERSIONS_JSON=https://raw.githubusercontent.com/neo4j-contrib/neo4j-graph-algorithms/master/versions.json
+ENV GDS_VERSIONS_JSON=https://s3-eu-west-1.amazonaws.com/com.neo4j.graphalgorithms.dist/graph-data-science/versions.json
 
-ENV NEO4J_PASS neo4j
+ENV NEO4J_AUTH=none
 
-ENV NEO4J_dbms_memory_pagecache_size=2G
+#ENV NEO4J_dbms_memory_pagecache_size=2G
 
-ENV NEO4J_dbms_memory_heap_max__size=10G
+#ENV NEO4J_dbms_memory_heap_max__size=10G
 
 ENV NEO4J_HOME /var/lib/neo4j
 
-COPY cngpass.sh /cngpass.sh
-
-RUN chmod +x /cngpass.sh
-
-#adding password change script to the top of entrypoint script
-RUN sed -i '3s/^/\/cngpass.sh\&\n\n/' /docker-entrypoint.sh
+RUN apt-get update && apt-get install -y \
+    curl \
+    jq \
+ && rm -rf /var/lib/apt/lists/*
 
 COPY install-plugins.sh /install-plugins.sh
 
