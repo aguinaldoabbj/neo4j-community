@@ -14,7 +14,7 @@ if ! ls apoc-*-all.jar 1> /dev/null 2>&1; then
     
 fi
 
-#GDP
+#GDS
 if ! ls neo4j-graph-data-science*.jar 1> /dev/null 2>&1; then
         # resolve correct GDP version 
         GDS_URL=`curl -s $GDS_VERSIONS_JSON | jq -r ".[] | select (.neo4j == \"$NEO4J_VERSION\") | [.jar] | first"`
