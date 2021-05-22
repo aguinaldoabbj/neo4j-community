@@ -1,12 +1,14 @@
-ARG TAG=4.2.6
+ARG VERSION_TAG=4.2.6
+
+ARG TAG=$VERSION_TAG-enterprise
 
 ARG BASE_CONTAINER=neo4j:$TAG
 
 FROM $BASE_CONTAINER
 
-ARG TAG
+ARG VERSION_TAG
 
-ENV NEO4J_VERSION=$TAG
+ENV NEO4J_VERSION=$VERSION_TAG
 
 #plugins
 ENV APOC_VERSIONS_JSON=https://raw.githubusercontent.com/neo4j-contrib/neo4j-apoc-procedures/master/versions.json
