@@ -24,6 +24,6 @@ fi
 cd $NEO4J_HOME
 
 echo "dbms.security.procedures.unrestricted=apoc.*,gds.*" >> $NEO4J_HOME/conf/neo4j.conf
-echo "dbms.security.procedures.whitelist=apoc.*, gds.*" >> $NEO4J_HOME/conf/neo4j.conf
+echo "dbms.security.procedures.allowlist=apoc.*, gds.*" >> $NEO4J_HOME/conf/neo4j.conf
 
 
